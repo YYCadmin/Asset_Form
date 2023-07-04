@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employees Notebook/Asset Assignment Agreement</title>
+  <style>
+    /* Add CSS styling here */
+    #signatureContainer {
+      border: 1px solid black;
+      padding: 10px;
+      width: 250px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    body {
+      background-image: url('bg1.jpg');
+      background-repeat: no-repeat;
+      background-size: 2000px 1000px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 794px; /* A4 width in pixels (assuming 72 dpi) */
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #F4F4F4;
+    }
+
+    #logo {
+      display: block;
+      width: 100px;
+      height: auto;
+      margin: 15px auto;
+    }
+
+    h2, h3, p {
+      margin-top: 0;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-row label {
+      flex: 0 0 120px; /* Adjust the width as needed */
+    }
+
+    .form-row input {
+      flex: 1;
+      max-width: 200px; /* Adjust the width as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="logo" src="logo.png" alt="Logo">
+    <form id="assignmentForm">
+      <h2>Employees Notebook/Asset Assignment Agreement</h2>
+      <p>The management has allocated its resources to invest in a notebook/asset, which we believe will add value to the business in terms of productivity and efficiency. However, in order to prevent notebook/asset losses due to negligence, staff is advised on the following:</p>
+
+      <form id="assignmentForm">
+        <h3>Terms and Conditions</h3>
+
+        <p>
+          1.1 You are required to exercise the same degree of care in using, protecting, and safekeeping the notebook/asset in a way that you would to a personal belonging of a similar nature.
+        </p>
+
+        <p>
+          1.2 The company will not accept any loss, theft, or damage of laptops due to negligence on your part. Any notebook/asset left in any open, unsecured, unlocked, unsafe place and unattended, which can be reasonably foreseen to subject the notebook/asset to a high risk of loss, theft, or damages. For example, loss of notebook/asset in a locked and unattended vehicle or left unattended in a client's place. The incidences of loss due to negligence will not be limited to the examples given and is not exhaustive.
+        </p>
+
+
+        <p>
+          2. Please report in writing any incident of loss, theft, or damage on the notebook/asset to the management of the company for further action, within the same or the next working day, stating clearly the causes for loss, theft, or damage. If it happens beyond the office compound, please make a police report within the same period as evidence.
+        </p>
+        <p>
+          3. In the event of loss, theft, or damage due to negligence on your part, the company will have all the rights to request you to compensate the company for the notebook/asset with the original purchase cost plus any cost of upgrades or the amount determined by the management with reasonable judgment.
+        </p>
+
+        <div class="form-row">
+          <label for="notebookId">Notebook/ Monitor ID:</label>
+          <input type="text" id="notebookId" required>
+        </div>
+
+        <div class="form-row">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" required>
+        </div>
+
+        <div class="form-row">
+          <label for="companyName">Company Name:</label>
+          <input type="text" id="companyName" required>
+        </div>
+
+        <div class="form-row">
+          <label for="companyEmail">Company Email:</label>
+          <input type="email" id="companyEmail" required>
+        </div>
+
+        <div class="form-row">
+          <label for="icNumber">IC Number:</label>
+          <input type="text" id="icNumber" required>
+        </div>
+
+        <div class="form-row">
+          <label for="date">Date:</label>
+          <input type="date" id="date" value="" required>
+        </div>
+        
+        <p>
+          I understand and agree to abide by the terms and conditions set for using the notebook/asset and will return the notebook/asset to the company if I tender my resignation.
+        </p>
+        <p>
+          Yours faithfully
+        </p>
+
+
+        <div class="form-row">
+          <label for="signature">Signature:</label>
+          <div id="signatureContainer">
+            <canvas id="signatureCanvas" width="300" height="150"></canvas>
+          </div>
+          <button onclick="clearSignature()">Clear Signature</button>
+        </div>
+
+        <div class="form-row">
+          <button type="button" onclick="generatePDF()">Export to PDF</button>
+        </div>
+      </form>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/signature_pad"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+  <script>
+    var signaturePad = new SignaturePad(document.getElementById('signatureCanvas'));
+
+    function validateForm() {
+      var notebookId = document.getElementById("notebookId").value;
+      var fullName = document.getElementById("fullName").value;
+      var companyName = document.getElementById("companyName").value;
+      var companyEmail = document.getElementById("companyEmail").value;
+      var icNumber = document.getElementById("icNumber").value;
+      var date = document.getElementById("date").value;
+
+      if (notebookId === "" || fullName === "" || companyName === "" || companyEmail === "" || icNumber === "" || date === "") {
+        alert("Please fill in all fields.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function generatePDF() {
+      if (validateForm()) {
+        var notebookId = document.getElementById("notebookId").value;
+        var fullName = document.getElementById("fullName").value;
+        var companyName = document.getElementById("companyName").value;
+        var companyEmail = document.getElementById("companyEmail").value;
+        var icNumber = document.getElementById("icNumber").value;
+        var date = document.getElementById("date").value;
+
+        var currentDate = new Date().toISOString().split("T")[0];
+        var pdfFilename = notebookId + "_" + currentDate + ".pdf";
+
+        var formElement = document.getElementById("assignmentForm");
+        var opt = {
+          margin: 0.5,
+          filename: pdfFilename,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(formElement).save();
+
+        // Send HTTP request to Power Automate
+        var payload = {
+          notebookId: notebookId,
+          fullName: fullName,
+          companyName: companyName,
+          companyEmail: companyEmail,
+          icNumber: icNumber,
+          date: date
+        };
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://prod-56.southeastasia.logic.azure.com:443/workflows/bbbb29eabab74a7c92537c95bbd08e03/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z0b9MFYr-oUk1ynwJKduj6WGCvmhaK83JJ6N5SpY4vY", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(payload));
+      }
+    }
+
+    function clearSignature() {
+      signaturePad.clear();
+    }
+
+    // Set the date field to today's date
+    var today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").value = today;
+  </script>
+</body>
+</html>
