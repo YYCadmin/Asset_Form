@@ -192,6 +192,18 @@
         xhttp.open("POST", "https://prod-56.southeastasia.logic.azure.com:443/workflows/bbbb29eabab74a7c92537c95bbd08e03/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z0b9MFYr-oUk1ynwJKduj6WGCvmhaK83JJ6N5SpY4vY", true);
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(payload));
+        
+        // Clear all fields except for the date
+    document.getElementById("notebookId").value = "";
+    document.getElementById("fullName").value = "";
+    document.getElementById("companyName").value = "";
+    document.getElementById("companyEmail").value = "";
+    document.getElementById("icNumber").value = "";
+
+    // Display success message
+    alert("Form submitted successfully!");
+
+        
       }
     }
 
