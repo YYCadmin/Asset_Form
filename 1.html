@@ -175,7 +175,7 @@
           html2canvas: { scale: 2 },
           jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-        html2pdf().set(opt).from(formElement).save();
+        
 
         // Send HTTP request to Power Automate
         var payload = {
