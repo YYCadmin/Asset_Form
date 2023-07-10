@@ -211,6 +211,11 @@
       signaturePad.clear();
     }
 
+    document.getElementById("notebookId").addEventListener("input", function(event) {
+      var input = event.target;
+      input.value = input.value.toUpperCase();
+    });
+
     // Set the date field to today's date
     var today = new Date().toISOString().split("T")[0];
     document.getElementById("date").value = today;
