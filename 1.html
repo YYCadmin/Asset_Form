@@ -189,7 +189,7 @@
         };
 
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "https://prod-56.southeastasia.logic.azure.com:443/workflows/bbbb29eabab74a7c92537c95bbd08e03/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z0b9MFYr-oUk1ynwJKduj6WGCvmhaK83JJ6N5SpY4vY", true);
+        xhttp.open("POST", "https://prod-53.southeastasia.logic.azure.com:443/workflows/42f11380eea648b88e10053220561e2b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0i7j862aqHHs-40iH6f3ZxYoSdAFeQmFqjGEQqS8z1k", true);
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(payload));
         
@@ -199,6 +199,7 @@
     document.getElementById("companyName").value = "";
     document.getElementById("companyEmail").value = "";
     document.getElementById("icNumber").value = "";
+    document.getElementById("signatureCanvas").value = "";
 
     // Display success message
     alert("Form submitted successfully!");
