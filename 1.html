@@ -62,75 +62,72 @@
       <h2>Employees Notebook/Asset Assignment Agreement</h2>
       <p>The management has allocated its resources to invest in a notebook/asset, which we believe will add value to the business in terms of productivity and efficiency. However, in order to prevent notebook/asset losses due to negligence, staff is advised on the following:</p>
 
-      <form id="assignmentForm">
-        <h3>Terms and Conditions</h3>
+      <h3>Terms and Conditions</h3>
 
-        <p>
-          1.1 You are required to exercise the same degree of care in using, protecting, and safekeeping the notebook/asset in a way that you would to a personal belonging of a similar nature.
-        </p>
+      <p>
+        1.1 You are required to exercise the same degree of care in using, protecting, and safekeeping the notebook/asset in a way that you would to a personal belonging of a similar nature.
+      </p>
 
-        <p>
-          1.2 The company will not accept any loss, theft, or damage of laptops due to negligence on your part. Any notebook/asset left in any open, unsecured, unlocked, unsafe place and unattended, which can be reasonably foreseen to subject the notebook/asset to a high risk of loss, theft, or damages. For example, loss of notebook/asset in a locked and unattended vehicle or left unattended in a client's place. The incidences of loss due to negligence will not be limited to the examples given and is not exhaustive.
-        </p>
+      <p>
+        1.2 The company will not accept any loss, theft, or damage of laptops due to negligence on your part. Any notebook/asset left in any open, unsecured, unlocked, unsafe place and unattended, which can be reasonably foreseen to subject the notebook/asset to a high risk of loss, theft, or damages. For example, loss of notebook/asset in a locked and unattended vehicle or left unattended in a client's place. The incidences of loss due to negligence will not be limited to the examples given and is not exhaustive.
+      </p>
+
+      <p>
+        2. Please report in writing any incident of loss, theft, or damage on the notebook/asset to the management of the company for further action, within the same or the next working day, stating clearly the causes for loss, theft, or damage. If it happens beyond the office compound, please make a police report within the same period as evidence.
+      </p>
+      <p>
+        3. In the event of loss, theft, or damage due to negligence on your part, the company will have all the rights to request you to compensate the company for the notebook/asset with the original purchase cost plus any cost of upgrades or the amount determined by the management with reasonable judgment.
+      </p>
+
+      <div class="form-row">
+        <label for="notebookId">Notebook/ Monitor ID:</label>
+        <input type="text" id="notebookId" required>
+      </div>
+
+      <div class="form-row">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" required>
+      </div>
+
+      <div class="form-row">
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" required>
+      </div>
+
+      <div class="form-row">
+        <label for="companyEmail">Company Email:</label>
+        <input type="email" id="companyEmail" required>
+      </div>
+
+      <div class="form-row">
+        <label for="icNumber">IC Number:</label>
+        <input type="text" id="icNumber" required>
+      </div>
+
+      <div class="form-row">
+        <label for="date">Date:</label>
+        <input type="date" id="date" value="" required>
+      </div>
+      
+      <p>
+        I understand and agree to abide by the terms and conditions set for using the notebook/asset and will return the notebook/asset to the company if I tender my resignation.
+      </p>
+      <p>
+        Yours faithfully
+      </p>
 
 
-        <p>
-          2. Please report in writing any incident of loss, theft, or damage on the notebook/asset to the management of the company for further action, within the same or the next working day, stating clearly the causes for loss, theft, or damage. If it happens beyond the office compound, please make a police report within the same period as evidence.
-        </p>
-        <p>
-          3. In the event of loss, theft, or damage due to negligence on your part, the company will have all the rights to request you to compensate the company for the notebook/asset with the original purchase cost plus any cost of upgrades or the amount determined by the management with reasonable judgment.
-        </p>
-
-        <div class="form-row">
-          <label for="notebookId">Notebook/ Monitor ID:</label>
-          <input type="text" id="notebookId" required>
+      <div class="form-row">
+        <label for="signature">Signature:</label>
+        <div id="signatureContainer">
+          <canvas id="signatureCanvas" width="300" height="95"></canvas>
         </div>
+        <button type="button" onclick="clearSignature()">Clear Signature</button>
+      </div>
 
-        <div class="form-row">
-          <label for="fullName">Full Name:</label>
-          <input type="text" id="fullName" required>
-        </div>
-
-        <div class="form-row">
-          <label for="companyName">Company Name:</label>
-          <input type="text" id="companyName" required>
-        </div>
-
-        <div class="form-row">
-          <label for="companyEmail">Company Email:</label>
-          <input type="email" id="companyEmail" required>
-        </div>
-
-        <div class="form-row">
-          <label for="icNumber">IC Number:</label>
-          <input type="text" id="icNumber" required>
-        </div>
-
-        <div class="form-row">
-          <label for="date">Date:</label>
-          <input type="date" id="date" value="" required>
-        </div>
-        
-        <p>
-          I understand and agree to abide by the terms and conditions set for using the notebook/asset and will return the notebook/asset to the company if I tender my resignation.
-        </p>
-        <p>
-          Yours faithfully
-        </p>
-
-
-        <div class="form-row">
-          <label for="signature">Signature:</label>
-          <div id="signatureContainer">
-            <canvas id="signatureCanvas" width="300" height="95"></canvas>
-          </div>
-          <button onclick="clearSignature()">Clear Signature</button>
-        </div>
-
-        <div class="form-row">
-          <button type="button" onclick="generatePDF()">Submit</button>
-        </div>
-      </form>
+      <div class="form-row">
+        <button type="button" onclick="generatePDF()">Submit</button>
+      </div>
     </form>
   </div>
 
