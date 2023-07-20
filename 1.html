@@ -199,7 +199,7 @@
     document.getElementById("companyName").value = "";
     document.getElementById("companyEmail").value = "";
     document.getElementById("icNumber").value = "";
-    document.getElementById("signatureCanvas").value = "";
+    signaturePad.clear();
 
     // Display success message
     alert("Form submitted successfully!");
@@ -209,6 +209,7 @@
     }
 
     function clearSignature() {
+      // Clear the signature pad canvas
       signaturePad.clear();
     }
 
