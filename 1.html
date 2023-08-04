@@ -212,7 +212,7 @@
 
     document.getElementById("notebookId").addEventListener("input", function(event) {
       var input = event.target;
-      input.value = input.value.toUpperCase();
+      input.value = input.value.replace(/\s/g, '').toUpperCase();
     });
 
     // Set the date field to today's date
