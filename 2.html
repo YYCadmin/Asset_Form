@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Employees Notebook/Asset Assignment Agreement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add CSS styling here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F4F4F4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    #logo {
+      display: block;
+      width: 100px;
+      margin: 0 auto 20px;
+    }
+
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .form-row label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-row input[type="text"],
+    .form-row input[type="email"],
+    .form-row input[type="date"] {
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-row select{      
+        font-size: 18px; 
+        padding: 10px;
+    }
+
+
+    .form-row input[type="checkbox"] {
+      transform: scale(1.5);
+      margin-right: 5px;
+    }
+
+
+    
+
+    .form-row button {
+      width: 100%;
+      height: 40px;
+      background-color: #3E8D3E;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #signatureContainer {
+      margin-bottom: 20px;
+    }
+
+    #signatureContainer canvas {      
+      height: auto;
+    }
+
+     /* Absolute Center Spinner */
+     .loading {
+      position: fixed;
+      z-index: 999;
+      height: 2em;
+      width: 2em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      visibility: hidden;
+    }
+
+    /* Transparent Overlay */
+    .loading:before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* :not(:required) hides these rules from IE9 and below */
+    .loading:not(:required) {
+      /* hide "loading..." text */
+      font: 0/0 a;
+      color: transparent;
+      text-shadow: none;
+      background-color: transparent;
+      border: 0;
+    }
+
+    .loading:not(:required):after {
+      content: '';
+      display: block;
+      font-size: 10px;
+      width: 1em;
+      height: 1em;
+      margin-top: -0.5em;
+      -webkit-animation: spinner 1500ms infinite linear;
+      -moz-animation: spinner 1500ms infinite linear;
+      -ms-animation: spinner 1500ms infinite linear;
+      -o-animation: spinner 1500ms infinite linear;
+      animation: spinner 1500ms infinite linear;
+      border-radius: 0.5em;
+      -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+      box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+    }
+
+    /* Animation */
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-moz-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-o-keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="loading" class="loading" onClick="hideSpinner()">
+        Loading&#8230;
+      </div>
+    <img id="logo" src="logo.png" alt="Logo">
+    <form id="assignmentForm">
+        <div style="display: flex; justify-content: center;">
+            <h2>Employees Notebook/<br>Asset Assignment Agreement</h2>
+        </div>
+      <p>The management has allocated its resources to invest in a notebook/asset, which we believe will add value to
+        the business in terms of productivity and efficiency. However, in order to prevent notebook/asset losses due to
+        negligence, staff is advised on the following:</p>
+
+      <h3>Terms and Conditions</h3>
+
+      <p>
+        1.1 You are required to exercise the same degree of care in using, protecting, and safekeeping the
+        notebook/asset in a way that you would to a personal belonging of a similar nature.
+      </p>
+
+      <p>
+        1.2 The company will not accept any loss, theft, or damage of laptops due to negligence on your part. Any
+        notebook/asset left in any open, unsecured, unlocked, unsafe place and unattended, which can be reasonably
+        foreseen to subject the notebook/asset to a high risk of loss, theft, or damages. For example, loss of
+        notebook/asset in a locked and unattended vehicle or left unattended in a client's place. The incidences of loss
+        due to negligence will not be limited to the examples given and is not exhaustive.
+      </p>
+
+      <p>
+        2. Please report in writing any incident of loss, theft, or damage on the notebook/asset to the management of
+        the company for further action, within the same or the next working day, stating clearly the causes for loss,
+        theft, or damage. If it happens beyond the office compound, please make a police report within the same period
+        as evidence.
+      </p>
+      <p>
+        3. In the event of loss, theft, or damage due to negligence on your part, the company will have all the rights
+        to request you to compensate the company for the notebook/asset with the original purchase cost plus any cost of
+        upgrades or the amount determined by the management with reasonable judgment.
+      </p>
+
+      <div class="form-row">
+            <label for="notebookId">IT Device:</label>
+            <select name="category" id="category">
+                <option value="Laptop">Laptop</option>
+                <option value="Monitor">Monitor</option>
+            </select>
+      </div>
+
+      <div class="form-row">
+        <label for="notebookId">Notebook/ Monitor ID:</label>
+        <input type="text" id="notebookId" required>
+      </div>
+
+      <div class="form-row">
+        <label><input type="checkbox" id="mouse" name="mouse" value="mouse" checked ="true"> Mouse</label>
+      </div>
+
+      <div class="form-row">
+        <label><input type="checkbox" id="bag" name="bag" value="bag" checked ="true"> Laptop Bag</label>
+      </div>
+
+      <div class="form-row">
+        <label><input type="checkbox" id="charger" name="charger" value="charger" checked ="true"> Laptop Charger</label>
+      </div>
+
+      <div class="form-row">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" required>
+      </div>
+
+      <div class="form-row">
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" required>
+      </div>
+
+      <div class="form-row">
+        <label for="companyEmail">Company Email:</label>
+        <input type="email" id="companyEmail" required>
+      </div>
+
+      <div class="form-row">
+        <label for="icNumber">IC Number:</label>
+        <input type="text" id="icNumber" required>
+      </div>
+
+      <div class="form-row">
+        <label for="date">Date:</label>
+        <input type="date" id="date" value="" required>
+      </div>
+
+      <p>
+        I understand and agree to abide by the terms and conditions set for using the notebook/asset and will return the
+        notebook/asset to the company if I tender my resignation.
+      </p>
+      <p>
+        Yours faithfully
+      </p>
+
+      <div class="form-row">
+        <label for="signature">Signature:</label>
+        <div id="signatureContainer">
+           <canvas id="signatureCanvas" style="border: 1px solid #000;"></canvas>
+           <button type="button" onclick="clearSignature()" style="margin-top: 10px;background-color: rgb(177, 173, 173);color: black;">Clear Signature</button>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top: 30px;">
+        <button type="button" onclick="generatePDF()">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/signature_pad"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+      
+    var signaturePad = new SignaturePad(document.getElementById('signatureCanvas'));
+    
+    const validateEmail = (email) => {
+      return String(email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
+
+    function validateForm() {
+      var notebookId = document.getElementById("notebookId").value;
+
+      var mouse = document.getElementById("mouse").checked;
+      var bag = document.getElementById("bag").checked;
+      var charger = document.getElementById("charger").checked;
+
+      var fullName = document.getElementById("fullName").value;
+      var companyName = document.getElementById("companyName").value;
+      var companyEmail = document.getElementById("companyEmail").value;
+      var icNumber = document.getElementById("icNumber").value;
+      var date = document.getElementById("date").value;
+
+      if (!notebookId || !fullName || !companyName || !companyEmail || !icNumber || !date) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Please fill in all fields.'
+        });
+
+        return false;
+      }else if(!validateEmail(companyEmail))
+      {
+        Swal.fire({
+          icon: 'error',
+          title: 'Please enter the company email correctly.'
+        });
+      }
+      else if(signaturePad.isEmpty())
+      {
+        Swal.fire({
+          icon: 'error',
+          title: 'Please sign up for the form.'
+        });
+      }
+      else {
+        return true;
+      }
+    }
+
+
+
+    async function generatePDF() {
+      if (validateForm()) {
+        var notebookId = document.getElementById("notebookId").value;
+
+        var mouse = document.getElementById("mouse").checked;
+        var bag = document.getElementById("bag").checked;
+        var charger = document.getElementById("charger").checked;
+
+        var fullName = document.getElementById("fullName").value;
+        var companyName = document.getElementById("companyName").value;
+        var companyEmail = document.getElementById("companyEmail").value;
+        var icNumber = document.getElementById("icNumber").value;
+        var date = document.getElementById("date").value;
+
+        var currentDate = new Date().toISOString().split("T")[0];
+        var pdfFilename = notebookId + "_" + currentDate + ".pdf";
+
+        var formElement = document.getElementById("assignmentForm");
+        var opt = {
+          margin: 0.5,
+          filename: pdfFilename,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+
+        // Send HTTP request to Power Automate
+        var payload = {
+          notebookId: notebookId,
+          mouse:mouse,
+          bag:bag,
+          charger:charger,
+          fullName: fullName,
+          companyName: companyName,
+          companyEmail: companyEmail,
+          icNumber: icNumber,
+          date: date,
+          signatureDataUrl: signaturePad.toDataURL()
+        };
+
+        /*var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://prod-53.southeastasia.logic.azure.com:443/workflows/42f11380eea648b88e10053220561e2b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0i7j862aqHHs-40iH6f3ZxYoSdAFeQmFqjGEQqS8z1k", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(payload));*/
+
+        var loadingDiv = document.getElementById('loading');
+
+        //Hide Spinner
+        loadingDiv.style.visibility = 'visible';
+
+        try {
+            //https://prod-53.southeastasia.logic.azure.com:443/workflows/42f11380eea648b88e10053220561e2b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0i7j862aqHHs-40iH6f3ZxYoSdAFeQmFqjGEQqS8z1k
+          const response = await fetch("https://prod-23.southeastasia.logic.azure.com:443/workflows/e6217a1cf0c84c28a13948730ddfad96/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=2q2IJbqZW1djoDlK3pZ-lbl44XnxBAXMsovfJclBU0M", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const respond = await response.json();
+          if (respond.result === "error") {
+            Swal.fire({
+              icon: 'error',
+              title: 'Input Error',
+              text: respond.message
+            });
+          }
+          else {
+
+            // Clear all fields except for the date
+            document.getElementById("notebookId").value = "";
+            document.getElementById("fullName").value = "";
+            document.getElementById("companyName").value = "";
+            document.getElementById("companyEmail").value = "";
+            document.getElementById("icNumber").value = "";
+            document.getElementById("mouse").checked = true;
+            document.getElementById("bag").checked = true;
+            document.getElementById("charger").checked = true;
+            signaturePad.clear();
+
+            Swal.fire('Form submitted successfully!', '', 'success');
+
+          }
+
+          //Show Spinner
+          loadingDiv.style.visibility = 'hidden';
+
+        } catch (error) {
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Unknow Error',
+            text: error
+          });
+
+          //Show Spinner
+          loadingDiv.style.visibility = 'hidden';
+        }
+
+
+
+
+        // Display success message
+        //alert("Form submitted successfully!");
+
+
+      }
+    }
+
+    function clearSignature() {
+      // Clear the signature pad canvas
+      signaturePad.clear();
+    }
+
+    document.getElementById("notebookId").addEventListener("input", function (event) {
+      var input = event.target;
+      input.value = input.value.replace(/\s/g, '').toUpperCase();
+    });
+
+    document.getElementById("category").addEventListener("change", (event)=>{
+        
+        if(event.target.value == "Laptop")
+        {
+            document.getElementById("mouse").disabled = false;
+            document.getElementById("bag").disabled = false;
+            document.getElementById("charger").disabled = false;
+        }
+        else if(event.target.value == "Monitor")
+        {
+            document.getElementById("mouse").disabled = true;
+            document.getElementById("bag").disabled = true;
+            document.getElementById("charger").disabled = true;
+
+            document.getElementById("mouse").checked = false;
+            document.getElementById("bag").checked = false;
+            document.getElementById("charger").checked = false;
+        }
+    })
+
+    // Set the date field to today's date
+    var today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").value = today;
+
+  </script>
+</body>
+
+</html>
