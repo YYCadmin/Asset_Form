@@ -252,16 +252,23 @@
         upgrades or the amount determined by the management with reasonable judgment.
       </p>
 
+      <!--New added option: Mobile Phone-->
       <div class="form-row">
             <label for="notebookId">IT Device:</label>
             <select name="category" id="category">
                 <option value="Laptop">Laptop</option>
                 <option value="Monitor">Monitor</option>
+                <option value="MobilePhone">Mobile Phone</option>
             </select>
       </div>
 
+      <!--
+      Change title
+      Before: Notebook/ Monitor ID
+      After: Asset Tag
+      -->
       <div class="form-row">
-        <label for="notebookId">Notebook/ Monitor ID:</label>
+        <label for="notebookId">Asset Tag:</label>
         <input type="text" id="notebookId" required>
       </div>
 
@@ -277,13 +284,23 @@
         <label><input type="checkbox" id="charger" name="charger" value="charger" checked ="true"> Laptop Charger</label>
       </div>
 
+      <!--
+      Change title
+      Before: Full Name
+      After: Full Name as per IC
+      -->
       <div class="form-row">
-        <label for="fullName">Full Name:</label>
+        <label for="fullName">Full Name as per IC:</label>
         <input type="text" id="fullName" required>
       </div>
 
+      <!--
+      Change title
+      Before: Company Name
+      After: Payroll Company Name
+      -->
       <div class="form-row">
-        <label for="companyName">Company Name:</label>
+        <label for="companyName">Payroll Company Name:</label>
         <input type="text" id="companyName" required>
       </div>
 
@@ -510,6 +527,16 @@
             document.getElementById("charger").disabled = false;
         }
         else if(event.target.value == "Monitor")
+        {
+            document.getElementById("mouse").disabled = true;
+            document.getElementById("bag").disabled = true;
+            document.getElementById("charger").disabled = true;
+
+            document.getElementById("mouse").checked = false;
+            document.getElementById("bag").checked = false;
+            document.getElementById("charger").checked = false;
+        }
+        else if(event.target.value == "MobilePhone") // New added for Mobile Phone in Dropdown List
         {
             document.getElementById("mouse").disabled = true;
             document.getElementById("bag").disabled = true;
